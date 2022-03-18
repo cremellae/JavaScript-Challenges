@@ -10,7 +10,7 @@
 ###############  ...                                                       #################
 ###########################################################################################*/
 
-writePyramid = (unNumero) => {
+writeNumbers = (unNumero) => {
 
     for (let i = 0; i < unNumero; i++) {
         document.write(unNumero);
@@ -20,5 +20,5 @@ writePyramid = (unNumero) => {
 }
 
 for (let i = 1; i <= 30; i++) {
-    writePyramid(i);
+    writeNumbers(i);
 }

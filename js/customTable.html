@@ -1,0 +1,52 @@
+<!-- Realiza un script que pida número de filas y columnas y escriba una tabla.
+ Dentro cada una de las celdas deberá escribirse un número consecutivo en orden descendente. 
+ Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1. -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="body">
+    <script>
+        cellsQuantity = (rows, columns) => {
+            return rows * columns;
+        }
+
+        createTable = (rows, columns) => {
+            const body = document.querySelector(".body");
+            const table = document.createElement("table");
+            const tableBody = document.createElement("tableBody");
+            let count = 0;
+
+            for (let i = 1; i <= rows; i++) {
+                const row = document.createElement("tr");
+
+                for (let j = 1; j <= columns; j++) {
+                    const cell = document.createElement("td");
+                    let cellNumber = document.createTextNode(cellsQuantity(rows, columns) - count);
+
+                    cell.appendChild(cellNumber);
+                    row.appendChild(cell);
+                    count++;
+                }
+
+                tableBody.appendChild(row);
+            }
+            table.appendChild(tableBody);
+            body.appendChild(table);
+
+        }
+
+        let row = prompt("Introduce the rows quantity");
+        let column = prompt("Introduce the columns quantity");
+
+        console.log(createTable(row, column));
+    </script>
+</body>
+
+</html>
